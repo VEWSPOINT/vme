@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container1 p-1 mb-4 rounded-3" style="background-color: #A9D0DC;">
+    <div class="row container-fluid py-1  ">
+        <link href='{% static "css/styles.css" %}' rel="stylesheet">
+        <div class="position-relative overflow-hidden  p-3 p-md-1 m-md-3  ">
+            <div class="  mx-auto my-1">
+                <h1 class="display-5 fw-bold text-white">Visibilité multiple pour entreprises</h1>
+                <p class=" col-md-8 fs-4 lead " style="color:#4d345e;">Notre service de création de site internet
+                    s'adresse aux entreprises à
+                    la recherche d'une visibilité à la hauteur de leur image et de leur position de valeur.</p>
+                <a class="btn btn-outline-secondary text-black" href="#">Commencer</a>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="grayBg sectionFeatures  p-5 p-md-5 m-md-6 p-lg-5 mx-auto my-1 ">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="background-color: #598f88;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:white;">Expertise</h5>
+                    <p class="card-text" style="color:white;"> Optimisation de la visibilité en ligne sur les
+                        différentes plateformes, simplification de la gestion et des prévisions E-commerce, note passion
+                        nous démarque de la concurrence.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 w3-highway-red">
+            <div class="h-100 p-5  border  rounded-3 " style="background-color: #2B3659  ; ">
+                <img alt="vme Logo" class="img-no-repeat " src="{% static 'images/vmelogo.png' %}"/>
+                <h2 style="color:white;"> services offerts:</h2>
+                <ul style="color:white;">
+                    <li>Developement de site web</li>
+                    <li>Commerce en ligne (Ecommerce)</li>
+                    <li>Publicite en ligne</li>
+                    <li>Hébergement securise e installations de certificat ssl</li>
+                </ul>
+                <button class="btn btn-outline-secondary" type="button">Commencer</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="row align-items-md-stretch mt-2 pt-2">
+        <div class="col-md-6">
+            <div class="h-100 p-5  border rounded-3">
+                <h2 style="color:dark;">langue de codage </h2>
+                <img alt='langue de codage ' class="img-no-repeat" src="{% static 'images/python-django.webp' %}"/>
+                <img src="">
+                <ul style="color:dark;">
+                    <li>Un nom de domaine.</li>
+                    <li>Un hébergeur.</li>
+                    <li>Un modèle de site Web adapté à votre entreprise.</li>
+                    <li>Un service de paiement si vous créez un site e-commerce.</li>
+
+                    <button class="btn btn-outline-secondary" type="button">Commencer</button>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-mds-6  ch-100 p-5  border rounded-3">
+            <div class="card ">
+                <table class=" ">
+
+                    <tr>
+                        <td class=" col-1 ">
+                            <div class="  card-body mt-2 mb-2 p-5  border rounded-3"
+                                 style="background-color: #333366; size: cover;">
+                                <h5 class="card-title" style="color: #eeedf0;">Professional</h5>
+                                <ul style="color: #f2f5f2;">
+                                    <li>formulas</li>
+                                    <li>5 pages</li>
+                                    <li>Multimedia</li>
+                                    <li class="text-muted"> marketing web</li>
+                                    <li class="text-muted">Online Payment</li>
+                                    <li class="text-muted">management</li>
+                                    <li class="text-muted">subscriptions</li>
+                                    <li>registration</li>
+
+
+                                </ul>
+                                <h4 class="card-text  " style="color:green;">test</h4>
+                                <a class="btn btn-primary" href="">Commencer</a>
+                            </div>
+                        </td>
+                        <td class=" col-1 ">
+                            <div class="  card-body mt-2 mb-2 p-5  border rounded-3"
+                                 style="background-color: #CF7D54; size: cover;">
+                                <h5 class="card-title" style="color: #eeedf0;">Enterprise</h5>
+                                <ul style="color: #f2f5f2;">
+                                    <li> marketing web</li>
+                                    <li>Online Payment</li>
+                                    <li>formulas</li>
+                                    <li>20 pages</li>
+                                    <li>management</li>
+                                    <li>Multimedia</li>
+                                    <li> registration</li>
+                                    <li>subscriptions</li>
+                                </ul>
+                                <h4 class="card-text  " style="color:green;">test</h4>
+                                <a class="btn btn-primary" href="">Commencer</a>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<main >
+    <div class="pb-2" style="background-color: #ECE0FF;">
+        <div class="pricing-header pt-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal">Realisations</h1>
+            <p class="fs-5 text-muted"></p>
+
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 pb-3 text-center p-5 ">
+            <div class="col">
+                <div class="card mb-4 pb-5 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Professionnel comptable </h4>
+                    </div>
+                    <div class="card-body pb-5 pt-5"
+                         style="background-image: url({% static 'images/comptable2.png' %}); background-size: contain; height: 250px; background-repeat: no-repeat;  position: relative; background-size: cover; ">
+                        <h1 class="card-title pricing-card-title"><small class="text-muted fw-light"></small></h1>
+
+
+                    </div>
+                </div>
+                <button class="w-100 btn btn-lg btn-outline-primary" type="button">Sign up for Basic</button>
+            </div>
+            <div class="col">
+                <div class="card mb-4 pb-5 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">E-commerce</h4>
+                    </div>
+                    <div class="card-body pb-5 pt-5"
+                         style="background-image: url({% static 'images/electrothumb.jpg' %}); background-size: contain;  height: 250px;  background-repeat: no-repeat; background-size: cover;  ">
+                        <h1 class="card-title pricing-card-title"><small class="text-muted fw-light"></small></h1>
+
+
+                    </div>
+
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="button">Get started</button>
+            </div>
+            <div class="col">
+                <div class="card mb-4 pb-5 rounded-3 shadow-sm border-primary">
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                        <h4 class="my-0 fw-normal">Restaurant</h4>
+                    </div>
+                    <div class="card-body pb-5 pt-5"
+                         style="background-image: url({% static 'images/restaurant.jpg' %}); background-size: contain; height: 250px;   background-repeat: no-repeat; background-size: cover;  ">
+                        <h1 class="card-title pricing-card-title"><small class="text-muted fw-light"></small></h1>
+
+
+                    </div>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="button">Contact us</button>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+        <div class="col-12 col-md">
+            <img alt="" class="mb-2" height="19" src="/docs/5.2/assets/brand/bootstrap-logo.svg" width="24">
+            <small class="d-block mb-3 text-muted">&copy; 2017–2022</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    {% endblock %}

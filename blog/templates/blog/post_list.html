@@ -1,0 +1,37 @@
+{% extends 'base_dashblog.html' %}
+{% block title %} {{ post.title }}/post_{{ post.id }}{% endblock title %}
+{% block containt %}
+
+{% load static %}
+<div class="container pt-3">
+  <div class="jumbotron d-flex justify-content-center w-75">
+    <h2>Mes Publications</h2>
+    <div class="d-flex justify-content-center" id="wrapper">
+
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+
+        <!-- Page content-->
+        <div class="container-fluid ">
+          <div class="list-group pb-3">
+            {% for post in post_list %}
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{post.title}}</h5>
+                <small>{{post.author.username}}</small>
+              </div>
+              <p class="mb-1">{{post.articles}}.</p>
+              <small>{{post.publication_date}}</small>
+            </a>
+
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <hr>
+  </div>
+</div>
+
+{% endblock  %}

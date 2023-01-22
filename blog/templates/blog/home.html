@@ -1,0 +1,44 @@
+{% extends 'base_dashblog.html' %}
+{% block containt %}
+
+{% load static %}
+<div class="container pt-3  ">
+    <div class="jumbotron d-flex justify-content-center  w-75  ">
+        <h2 style="color:#fc9803; " >Blogs</h2>
+        <div class="d-flex justify-content-center  " id="wrapper">
+
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper ">
+
+                <!-- Page content-->
+                <div class="container-fluid ">
+                  <div class = "container-ms bg>"
+                   <div class="card me-3 w-75">
+                    {% for post in post_list %}
+
+                        <p class = "text-bg-primary card-header ">{{post.publication_date}}</p>
+                        <h5>{{post.title}}</h5>
+                        <p>{{post.articles}}</p>
+                        <p>Publier par : {{post.author.username}}</p>
+
+                      <a href="{% url 'post_detail' post.pk %}">commenter</a>
+                        {% for comment in post.comment_set.all %}
+                        <div class="card-footer ">
+                          {{comment.author}} &middot; {{comment.comment}}
+                        </div>
+                        {% endfor %}
+
+                      <hr class="bg-danger">
+                    {% endfor %}
+                   </div>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+
+        <hr>
+    </div>
+</div>
+
+{% endblock  %}

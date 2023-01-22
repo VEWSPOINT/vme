@@ -1,0 +1,31 @@
+{% extends 'base_dashblog.html' %}
+{% block title %} {{ post.title }}/post_{{ post.id }}{% endblock title %}
+{% block containt %}
+
+{% load static %}
+<div class="container pt-3">
+    <div class="jumbotron w-75">
+        <h2>Developer Dash</h2>
+        <div class="d-flex" id="wrapper">
+
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+
+                <!-- Page content-->
+                <div class="container-fluid">
+                  <form method="POST">
+                      {% csrf_token %}
+                      <p>Etes vous sure de vouloir la publication <b>{{post.title}}</b></p>
+                       en date du <br>{{post.publication_date}}<hr>
+                      <button type = "submit">Delete</button>
+                  </form>
+                  <h2>test</h2>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+    </div>
+</div>
+
+{% endblock  %}

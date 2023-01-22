@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block containt %}
+<div class="card">
+<p class = "card-header text-bg-primary"><b>{{ post.title}}</b></p>
+<p class = "card-body">{{ post.articles}}<p/>
+{% if post.statut == "Private" %}
+    Cette publication privé
+{% else %}
+    Cette publication est publique
+{% endif %}
+<hr>
+<p class= "text-color-primary card-header">Comentaire<p>
+    {% for comment in post.comment_set.all  %}
+    <p> {{comment.author}} &middot; {{comment}}
+    {% endfor %}
+    <h4 class = "text-bg-primary"> Ajouté un commentaire </h4>
+    <form action="", method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-primary"type="submit">save</button>
+    </form>
+<hr>
+</div>
+<center>
+<a class="btn btn-outline-danger "href="{% url 'post_delete' post.pk %}">Effacer</a> | 
+<a class="btn btn-outline-success "href="{% url 'post_update' post.pk %}">Mettre a jour</a> | <a class="btn btn-outline-primary "href= "{% url 'home' %}">Affichez les artcle</a>
+</center>
+
+{% endblock containt %}

@@ -1,0 +1,16 @@
+{% extends 'CUA/base.html' %}
+{% block body_block %}
+
+<div class="container pt-3 ">
+  <div class="jumbotron w-75">
+    <h1 class="display-3">Register Here!</h1>
+
+    <hr class="my-2">
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url "CUA:registerCustomer" %}" role="button">I'm a Customer</a>
+      <a class="btn btn-primary btn-lg" href="{% url "CUA:registerDeveloper" %}" role="button">I'm a Developer</a>
+    </p>
+  </div>
+
+</div>
+{% endblock %}
