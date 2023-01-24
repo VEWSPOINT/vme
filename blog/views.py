@@ -4,19 +4,24 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from django.template.response import TemplateResponse
 from blog.models import Post
-#from account.models import CustomUser
-from .forms import PostForm,CommentForm
+# from account.models import CustomUser
+from .forms import PostForm, CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import View
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+
 
 # home view
+
+
 class BlogListView(ListView):
     queryset = Post.objects.filter(status="Publique")
     template_name = "blog/home.html"
 
+
 # personal user view
-class PostListView(LoginRequiredMixin,View):
+class PostListView(LoginRequiredMixin, View):
     def get_queryset(self, request):
         return Post.objects.filter(author=request.user)
 
@@ -26,14 +31,15 @@ class PostListView(LoginRequiredMixin,View):
         return TemplateResponse(request, 'blog/post_list.html', context)
 
 
-#@@@@@@_____Create data form view
-class BlogCreateView(LoginRequiredMixin,CreateView):
+# @@@@@@_____Create data form view
+class BlogCreateView(LoginRequiredMixin, CreateView):
     form_class = PostForm
     template_name = "blog/post_new.html"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
 
 # comment on detail view
 class CommentGetView(DetailView):
@@ -45,7 +51,8 @@ class CommentGetView(DetailView):
         context["form"] = CommentForm
         return context
 
-class CommentPostView(SingleObjectMixin,FormView):
+
+class CommentPostView(SingleObjectMixin, FormView):
     model = Post
     form_class = CommentForm
     template_name = "blog/post_detail.html"
@@ -54,27 +61,29 @@ class CommentPostView(SingleObjectMixin,FormView):
         self.object = self.get_object()
         return super().post(request, *args, **kwargs)
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         comment = form.save(commit=False)
-        comment.post =self.object
+        comment.post = self.object
         comment.save()
         return super().form_valid(form)
 
     def get_success_url(self):
         post = self.get_object()
-        return reverse("post_detail", kwargs={"pk":post.pk})
+        return reverse("post_detail", kwargs={"pk": post.pk})
 
-class BlogDetailView(LoginRequiredMixin,View):
-    def get(self,request,*args, **kwargs):
+
+class BlogDetailView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
         view = CommentGetView.as_view()
-        return view(request,*args, **kwargs)
+        return view(request, *args, **kwargs)
 
-    def post(self,request,*args, **kwargs):
+    def post(self, request, *args, **kwargs):
         view = CommentPostView.as_view()
-        return view(request,*args, **kwargs)
+        return view(request, *args, **kwargs)
+
 
 # updat date form view
-class BlogUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
+class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     form_class = PostForm
     template_name = "blog/post_update.html"
@@ -83,12 +92,13 @@ class BlogUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         obj = self.get_object()
         return obj.author == self.request.user
 
+
 # dele data
-class BlogDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
+class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
-    #form_class = PostForm
+    # form_class = PostForm
     fields = "__all__"
-    success_url= reverse_lazy("home")
+    success_url = reverse_lazy("home")
     template_name = "blog/post_delete.html"
 
     def test_func(self):

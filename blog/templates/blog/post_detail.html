@@ -1,5 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'base_dashblog.html' %}
+{% block title %} {{ post.title }}/post_{{ post.id }}{% endblock title %}
 {% block containt %}
+
+{% load static %}
+<h2>Hello</h2>
 <div class="card">
 <p class = "card-header text-bg-primary"><b>{{ post.title}}</b></p>
 <p class = "card-body">{{ post.articles}}<p/>
@@ -23,7 +27,7 @@
 </div>
 <center>
 <a class="btn btn-outline-danger "href="{% url 'post_delete' post.pk %}">Effacer</a> | 
-<a class="btn btn-outline-success "href="{% url 'post_update' post.pk %}">Mettre a jour</a> | <a class="btn btn-outline-primary "href= "{% url 'home' %}">Affichez les artcle</a>
+<a class="btn btn-outline-success "href="{% url 'post_update' post.pk %}">Mettre a jour</a> | <a class="btn btn-outline-primary "href= "">Affichez les artcle</a>
 </center>
 
-{% endblock containt %}
+{% endblock %}
